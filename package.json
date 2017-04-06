@@ -1,0 +1,26 @@
+{
+  "name": "xiaogutian.com",
+  "version": "1.0.0",
+  "description": "a web for test",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.15.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhj2159815/xiaogutian.com.git"
+  },
+  "keywords": [
+    "xiaogutian"
+  ],
+  "author": "zhangjian",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhj2159815/xiaogutian.com/issues"
+  },
+  "homepage": "https://github.com/zhj2159815/xiaogutian.com#readme"
+}
