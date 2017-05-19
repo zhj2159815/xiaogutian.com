@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>    
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+
+    <%= title %>
+    <%- title %>
+    <% users.forEach(function(user){ %>
+        <h6><%= user.name %></h6>
+        <h6><%= user.age %></h6>
+    <% }) %>
+    
+  </body>
+</html>
+
