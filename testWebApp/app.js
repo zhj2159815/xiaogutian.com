@@ -13,12 +13,18 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
-app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-console.log('33',path.join(__dirname, 'public', 'xiaogutian.ico'));
+// app.use(favicon(path.join(__dirname, '/public/favicon.ico')));
+// app.use(favicon(__dirname + '/public/favicon.ico'));
+
+// console.log(__dirname + '/public/favicon.ico');
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(favicon(path.join(__dirname, '/public/favicon.ico')));
+
 app.use(cookieParser());
 
 //使用靠就这个中间件
