@@ -3,14 +3,16 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
+
+  if (req.session) {
+    console.log('isLogin', res.session);
+  }
+  else {
+    console.log('unLogin', res.session);
+  }
+  var loginName = req.session && req.session.loginName ? req.session.loginName : '小古田';
   res.render('index', {
-    title: '<h1>小古田</h1>',
-    users: [
-      { name: 'zhangjian', age: 22 },
-      { name: 'zhangjian', age: 22 },
-      { name: 'zhangjian', age: 23 },
-      { name: 'zhangjian', age: 24 },
-    ]
+    title: loginName
   });
 });
 

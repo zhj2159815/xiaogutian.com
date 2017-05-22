@@ -1,0 +1,29 @@
+.header{
+  text-align: center;
+  height: 30px;
+  margin: 5px auto;
+}
+.content{
+  /*width:800px;*/
+  margin:0 auto;
+}
+.footer{
+  /*width:100%;*/
+  height:30px;
+}
+
+.header ul {
+    font-size: 16px;
+    color: blue;
+    margin-left:50px;
+}
+
+ .header ul li{
+  float:left;
+  list-style: none;
+  margin: 10px;
+}
+
+.textCenter{
+  text-align: center;
+}

@@ -1,0 +1,17 @@
+.row{
+  width:800px;
+  height:50px;
+}
+
+.row .rowLable{
+ text-align: right;
+}
+
+.row .rowInput{
+  text-align: left;
+}
+.row .rowBtn{
+  text-align: center;
+  
+  
+}

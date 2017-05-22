@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/css/base.css' />
+  <link rel='stylesheet' href='/css/bootstrap.css' />
+  <link rel='stylesheet' href='/css/login.css' />
+</head>
+
+<body>
+  <div class="container">
+    <% include header %>
+      <div class="content container-fluid">
+        <form method="post">
+          <div class="form-group">
+            <label>用户名：</label>
+            <input class="form-control" id="userName" name="userName" type="text" placeholder="请输入用户名" />
+          </div>
+          <div class="form-group">
+            <label>密码：</label>
+            <input class="form-control" id="password" name="password" type="password" placeholder="请输入密码" />
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="submit" value="登录" id="submitBtn" />
+            <a class="textCenter" href="/register">暂无用户 点击注册</a>
+          </div>
+        </form>
+      </div>
+      <% include footer %>
+  </div>
+</body>
+<script type="text/javascript" src="../js/jquery-2.1.4.min.js"></script>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $("#submitBtn").click(function () {
+      console.log('dd');
+    });
+  });
+
+</script>
+
+</html>
