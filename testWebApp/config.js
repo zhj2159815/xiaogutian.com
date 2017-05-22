@@ -5,7 +5,7 @@ let env = process.env.NODE_ENV = "product";
 let configiurations = {
   test: {
     PORT: 8000,
-    ADMIN: 'blues'
+    ADMIN: 'blues',
   },
   product: {
     PORT: 80,

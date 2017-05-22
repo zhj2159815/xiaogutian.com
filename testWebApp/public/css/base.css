@@ -1,7 +1,7 @@
 .header{
   text-align: center;
   height: 30px;
-  margin: 5px auto;
+  margin: 0 auto;
 }
 .content{
   /*width:800px;*/
@@ -27,3 +27,4 @@
 .textCenter{
   text-align: center;
 }
+
