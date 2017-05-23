@@ -42,7 +42,7 @@ app.use('/login', login);
 // require('./service/configuration').init(app, __dirname, function (err) {
 //   console.log('初始化');
 // });
-app.use('/regist', register);
+
 app.use('/register', register);
 app.use('/forget', forget);
 app.use('/404', nofound);
