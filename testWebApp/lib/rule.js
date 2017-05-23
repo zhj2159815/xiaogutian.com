@@ -1,3 +1,5 @@
+'use strict';
+
 var $ = require('underscore');
 var convert = require('../lib/convert');
 

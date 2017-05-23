@@ -1,3 +1,5 @@
+'use strict'
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -11,8 +13,6 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-
-
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
@@ -34,12 +34,20 @@ var login = require('./routes/login');
 var register = require('./routes/register');
 var forget = require('./routes/forget');
 var nofound = require('./routes/nofound');
+var helper = require("./lib/helper");
 
 app.use('/', index);
 app.use('/login', login);
+
+// require('./service/configuration').init(app, __dirname, function (err) {
+//   console.log('初始化');
+// });
+app.use('/regist', register);
 app.use('/register', register);
 app.use('/forget', forget);
 app.use('/404', nofound);
+
+// helper.initRoutes(app);
 
 
 // catch 404 and forward to error handler

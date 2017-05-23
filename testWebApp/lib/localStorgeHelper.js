@@ -1,3 +1,5 @@
+'use strict';
+
 var localStorage = window.localStorage;
 
 exports.getByItem = function (itemStr) {

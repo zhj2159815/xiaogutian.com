@@ -1,4 +1,6 @@
 
+'use strict';
+
 var moment = require('moment');
 
 exports.getSeconds = function (dt) {
