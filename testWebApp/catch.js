@@ -1,15 +1,12 @@
 'use strict';
 
-/*
-* 功能:   数据采集
-* 创建人: Wilson
-* 时间:   2015-07-29
-*/
 var request = require('request');
 var cheerio = require('cheerio');
 var _ = require('underscore');
 var XUNYINURL = 'http://www.xunyingwang.com/movie';            //迅影网电影
 var XUNYINURL = 'http://www.xunyingwang.com/tv';             //迅影网电视剧
+var XUNYINGMEDIO = 'http://www.xunyingwang.com/videos/resList/';
+var async = require('async');
 
 var page = 0;
 var zlib = require('zlib');
@@ -63,8 +60,8 @@ function dataPaseXunying(body, item) {
   saveFile('movie.txt', downloadLists, 0);
 }
 
-function requestDetail(item) {
-  let url = 'http://www.xunyingwang.com/videos/resList/' + item.id;
+function requestDetail(item, callback) {
+  let url = XUNYINGMEDIO + item.id;
   request({
     url: url,
     method: 'GET',
@@ -72,27 +69,29 @@ function requestDetail(item) {
       'Accept-Encoding': 'gzip',
     },
     encoding: null  // it is very import!!
-  }, function (err, res, body) {
-    if (err) {
-      console.log('err:', err);
-    }
-    if (res.headers['content-encoding'] == 'gzip') {
-      zlib.unzip(body, function (err, buffer) {
-        var bodyStr = buffer.toString();
-        dataPaseXunying(bodyStr, item);
-      });
-    }
-    else {
-      dataPaseXunying(body, item);
-    }
-  });
+  }, callback);
 }
 
+var getBodyCallback = function (err, res, body) {
+  if (err) {
+    console.log('err:', err);
+  }
+  if (res.headers['content-encoding'] == 'gzip') {
+    zlib.unzip(body, function (err, buffer) {
+      var bodyStr = buffer.toString();
+      dataPaseXunying(bodyStr, item);
+    });
+  }
+  else {
+    dataPaseXunying(body, item);
+  }
+};
+
 function getDetail() {
-  _.each(movieLists, function (e, i) {
-    console.log('e',e);
-    requestDetail(e);
+  async.mapLimit(movieLists, requestDetail(e), 1, function (item, getBodyCallback) {
+    requestDetail(item, getBodyCallback);
   });
+
 }
 
 function saveFile(file, list, type) {
@@ -126,8 +125,8 @@ function readJsonFile(pathStr) {
   fs.readFile(pathStr, (err, data) => {
     if (err) throw err;
     movieLists = JSON.parse(data.toString());
-    console.log(data.toString());
-    // getDetail();
+    // console.log(movieLists);
+    getDetail();
   });
 }
 

@@ -1,10 +1,10 @@
 'use strict'
 
-let env = process.env.NODE_ENV = "test";
+let env = process.env.NODE_ENV = "product";
 
 let configiurations = {
   test: {
-    PORT: 80,
+    PORT: 8001,
     ADMIN: 'blues',
     DBNAME: 'root',
     DBPSW: '123456',

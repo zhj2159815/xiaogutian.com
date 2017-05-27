@@ -14,9 +14,42 @@
 <body>
   <div class="container">
     <% include header %>
-      <div class="content container-fluid">首页</div>
+      <div class="content container-fluid" style="float:left;">
+        <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="true">
+            Dropdown1
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><a href="#">Action1</a></li>
+            <li><a href="#">Another action1</a></li>
+            <li><a href="#">Something else here1</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link1</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="content container-fluid" style="float:left;">
+        <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="true">
+            Dropdown2
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </div>
+      </div>
       <% include footer %>
   </div>
 </body>
+<script type="text/javascript" src="../js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap.js"></script>
 
 </html>
