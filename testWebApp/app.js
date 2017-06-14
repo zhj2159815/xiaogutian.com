@@ -17,6 +17,11 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(express.static(path.join(__dirname, 'fdw/static')));
+
+app.use('/', function(req, res, next) {
+  res.sendfile("./fdw/index.html");
+});
+
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, '/public/favicon.ico')));
 
@@ -36,16 +41,16 @@ var forget = require('./routes/forget');
 var nofound = require('./routes/nofound');
 var helper = require("./lib/helper");
 
-app.use('/', index);
-app.use('/login', login);
+// app.use('/', index);
+// app.use('/login', login);
 
 // require('./service/configuration').init(app, __dirname, function (err) {
 //   console.log('初始化');
 // });
 
-app.use('/register', register);
-app.use('/forget', forget);
-app.use('/404', nofound);
+// app.use('/register', register);
+// app.use('/forget', forget);
+// app.use('/404', nofound);
 
 // helper.initRoutes(app);
 
