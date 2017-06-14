@@ -18,9 +18,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(express.static(path.join(__dirname, 'fdw/static')));
 
-app.use('/', function(req, res, next) {
-  res.sendfile("./fdw/index.html");
-});
 
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, '/public/favicon.ico')));
